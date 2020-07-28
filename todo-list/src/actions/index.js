@@ -1,4 +1,8 @@
-export const addTodo = (item) => ({
-	type: 'ADD-ITEM',
-	payload: (item)
+let nextTodoId = 0;
+
+export const addToDo = (description) => ({
+	type: 'ADD_ITEM',
+	id: nextTodoId++,
+	complete: false,
+	description,
 });

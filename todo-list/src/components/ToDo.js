@@ -1,8 +1,8 @@
 import React from 'react';
 
-const Todo = ({ description, completed }) => (
+const Todo = ({ description, completed, id }) => (
 	<li>
-		{description} | {completed ? 'Done' : 'Not Yet'}
+		{id + 1} | {description} | {completed ? 'Done' : 'Not Yet'}
 	</li>
 );
 

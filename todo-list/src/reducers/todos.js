@@ -1,18 +1,18 @@
-const todos = (state = [{ id: 1, description: 'Study', completed: false }], action) => {
-	let nextId = 1;
+const todos = (state = [], action) => {
 	switch (action.type) {
-		case 'ADD-ITEM':
+		case 'ADD_ITEM':
 			return [
 				...state,
 				{
-					id: nextId++,
-					description: action.payload,
-					completed: false,
+					id: action.id,
+					complete: action.complete,
+					description: action.description,
 				},
 			];
+		case 'TOGGLE_ITEM':
+			return state.map((todo) => (todo.id === action.id ? { ...todo, complete: !todo.complete } : todo));
 		default:
 			return state;
 	}
 };
-
 export default todos;
