@@ -15,8 +15,8 @@ function mapStateToProps(state) {
 	return state;
 }
 
-// const mapDispatchToProps = (dispatch) => ({
-// 	toggleToDo: () => dispatch(toggleToDo()),
-// });
+const mapDispatchToProps = (dispatch) => ({
+	toggleToDo: (id) => dispatch(toggleToDo(id)),
+});
 
-export default connect(mapStateToProps, { toggleToDo })(ToDoList);
+export default connect(mapStateToProps, mapDispatchToProps)(ToDoList);

@@ -20,5 +20,8 @@ function AddToDo({ addToDo }) {
 		</>
 	);
 }
+const mapDispatchToProps = (dispatch) => ({
+	addToDo: (value) => dispatch(addToDo(value)),
+});
 
-export default connect(null, { addToDo })(AddToDo);
+export default connect(null, mapDispatchToProps)(AddToDo);
