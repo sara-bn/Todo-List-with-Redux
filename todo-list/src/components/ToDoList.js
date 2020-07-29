@@ -1,18 +1,22 @@
 import React from 'react';
 import ToDo from './ToDo';
 import { connect } from 'react-redux';
+import { toggleToDo } from '../actions/index';
 
-const ToDoList = ({ todos }) => (
-	<ul className="todo-list">
-		{todos && todos.length
-			? todos.map((item, index) => {
-					return <ToDo key={item.id} {...item} />;
-			  })
-			: 'No todos, yay!'}
-	</ul>
-);
+const ToDoList = ({ todos, toggleToDo }) => {
+	return (
+		<ul>
+			{todos != null && todos.map((item) => <ToDo key={item.id} {...item} onClick={() => toggleToDo(item.id)} />)}
+		</ul>
+	);
+};
 
 function mapStateToProps(state) {
 	return state;
 }
-export default connect(mapStateToProps)(ToDoList);
+
+// const mapDispatchToProps = (dispatch) => ({
+// 	toggleToDo: () => dispatch(toggleToDo()),
+// });
+
+export default connect(mapStateToProps, { toggleToDo })(ToDoList);

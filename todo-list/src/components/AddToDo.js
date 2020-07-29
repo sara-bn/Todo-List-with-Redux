@@ -15,7 +15,7 @@ function AddToDo({ addToDo }) {
 
 	return (
 		<>
-			<input type="text" onChange={handleOnChange} value={value} placeholder="You text here" />
+			<input type="text" onChange={handleOnChange} value={value} placeholder="New Task" />
 			<button onClick={handleAdd}>Add</button>
 		</>
 	);
